@@ -21,10 +21,10 @@ export const POST = async (request: NextRequest) => {
 
     // Hash Password
     // const salt = await bcryptjs.getSalt(10);
-    // const hashedPassword = await bcryptjs.hash(password, salt);
+    const hashedPassword = await bcryptjs.hash(password, 10);
 
     // Create new User
-    const newUser = new Usertwo({ username, email, password });
+    const newUser = new Usertwo({ username, email, password: hashedPassword });
     const savedUser = await newUser.save();
 
     return NextResponse.json(

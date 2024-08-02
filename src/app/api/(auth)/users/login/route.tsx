@@ -23,16 +23,8 @@ export const POST = async (req: NextRequest) => {
     }
 
     // Check if password is correct
-    // const validPassword = await bcryptjs.compare(password, user.password);
-    // if (!validPassword) {
-    //   return NextResponse.json(
-    //     {
-    //       error: "Invalid password",
-    //     },
-    //     { status: 400 }
-    //   );
-    // }
-    if (password !== user.password) {
+    const validPassword = await bcryptjs.compare(password, user.password);
+    if (!validPassword) {
       return NextResponse.json(
         {
           error: "Invalid password",
@@ -40,6 +32,14 @@ export const POST = async (req: NextRequest) => {
         { status: 400 }
       );
     }
+    // if (password !== user.password) {
+    //   return NextResponse.json(
+    //     {
+    //       error: "Invalid password",
+    //     },
+    //     { status: 400 }
+    //   );
+    // }
 
     // Create token data
     const tokenData = {
