@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Link from "next/link";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const Signup = () => {
   const router = useRouter();
@@ -46,6 +46,7 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <Toaster position="top-center" reverseOrder={false} />
       <h1> {loading ? "SignupProcessing" : "Signup"}</h1>
       <hr className="mb-4" />
       <label htmlFor="username">Username</label>

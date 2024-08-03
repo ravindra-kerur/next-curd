@@ -9,7 +9,7 @@ type PageProps = {
 const UserProfile = (props: PageProps) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1>User Profile</h1>
+      <h1 className="mb-6">User Profile</h1>
       <hr />
       <p className="text-4xl">
         User Profile Page{" "}

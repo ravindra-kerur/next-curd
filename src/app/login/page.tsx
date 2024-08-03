@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const router = useRouter();
@@ -32,6 +33,7 @@ const Login = () => {
     } catch (error: any) {
       console.log("Login failed", error);
       setLoading(false);
+      toast.error("Error ", error);
     } finally {
       setLoading(false);
     }
@@ -39,6 +41,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
+      <Toaster position="top-center" reverseOrder={false} />
       <h1>{loading ? "Processing" : "Login"}</h1>
       <hr className="mb-4" />
 
